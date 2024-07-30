@@ -8,6 +8,7 @@ namespace Final_Project.Models
             this.CollegeProgram = CollegeProgram;
             this.Year = Year;
         }
+
         public int? Id { get; set; }
         public string Name { get; set; }
         public string Birthdate { get; set; }

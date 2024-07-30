@@ -4,10 +4,10 @@
     {
         public Hobby(string name, string hobbyName, string description, string frequencyPerWeek)
         {
-            Name = name;
-            HobbyName = hobbyName;
-            Description = description;
-            FrequencyPerWeek = frequencyPerWeek;
+            this.Name = name;
+            this.HobbyName = hobbyName;
+            this.Description = description;
+            this.FrequencyPerWeek = frequencyPerWeek;
         }
 
         public int? Id { get; set; }

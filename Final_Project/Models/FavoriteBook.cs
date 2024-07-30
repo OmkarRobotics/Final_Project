@@ -4,10 +4,10 @@
     {
         public FavoriteBook(string name, string bookName, string bookPrice, string releaseDate)
         {
-            Name = name;
-            BookName = bookName;
-            BookPrice = bookPrice;
-            ReleaseDate = releaseDate;
+            this.Name = name;
+            this.BookName = bookName;
+            this.BookPrice = bookPrice;
+            this.ReleaseDate = releaseDate;
         }
 
         public int? Id { get; set; }

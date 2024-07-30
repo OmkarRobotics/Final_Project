@@ -4,10 +4,10 @@
     {
         public FavoriteBreakfast(string name, string breakfastName, string description, string price)
         {
-            Name = name;
-            BreakfastName = breakfastName;
-            Description = description;
-            Price = price;
+            this.Name = name;
+            this.BreakfastName = breakfastName;
+            this.Description = description;
+            this.Price = price;
         }
 
         public int? Id { get; set; }
