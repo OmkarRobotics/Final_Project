@@ -1,8 +1,8 @@
-namespace Final_Project.Model
+namespace Final_Project.Models
 {
     public class TeamMember
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
 
         public int[] Birthdate { get; set; }
