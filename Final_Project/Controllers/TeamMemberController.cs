@@ -24,6 +24,11 @@ namespace Final_Project.Controllers
         [HttpPost]
         public IActionResult Create(string name, string birthdate, string program, string year)
         {
+            int next;
+            for(int i = 0; i < TeamMembers.Count; i++)
+            {
+
+            }
             members.Add(new TeamMember(name, birthdate, program, year));
             return Ok();
         }
