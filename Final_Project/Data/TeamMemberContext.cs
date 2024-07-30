@@ -14,10 +14,10 @@ namespace Final_Project.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<TeamMember>().HasData(
-                new TeamMember { Id = 1, Name = "Omkar Seth", Birthdate = "11/12", CollegeProgram = "College Credit Plus", Year = "Freshman" },
-                new TeamMember { Id = 2, Name = "Sunav Adhikari", Birthdate = "01/8", CollegeProgram = "College Credit Plus", Year = "Freshman" },
-                new TeamMember { Id = 3, Name = "Nathan Dahlquist", Birthdate = "07/29", CollegeProgram = "Information Technology", Year = "Junior" },
-                new TeamMember { Id = 4, Name = "Sydney Hutton", Birthdate = "02/18", CollegeProgram = "Information Technology", Year = "Junior" }
+                new TeamMember (1, "Omkar Seth", "11/12","College Credit Plus","Freshman" ),
+                new TeamMember (2, "Sunav Adhikari", "01/8", "College Credit Plus", "Freshman"),
+                new TeamMember (3, "Nathan Dahlquist", "07/29", "Information Technology", "Junior" ),
+                new TeamMember (4, "Sydney Hutton", "02/18", "Information Technology", "Junior" )
                 );
         }
 
