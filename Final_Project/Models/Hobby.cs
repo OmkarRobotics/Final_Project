@@ -2,6 +2,14 @@
 {
     public class Hobby
     {
+        public Hobby(string name, string hobbyName, string description, string frequencyPerWeek)
+        {
+            Name = name;
+            HobbyName = hobbyName;
+            Description = description;
+            FrequencyPerWeek = frequencyPerWeek;
+        }
+
         public int? Id { get; set; }
         public string Name { get; set; }
         public string HobbyName { get; set; }
