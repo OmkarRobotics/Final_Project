@@ -1,4 +1,4 @@
-namespace Final_Project
+namespace Final_Project.Model
 {
     public class TeamMember
     {
