@@ -1,3 +1,4 @@
+using Final_Project.Data;
 using Final_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,24 +13,19 @@ namespace Final_Project.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private List<TeamMember> members;
         private readonly ILogger<TeamMemberController> _logger;
-
-        public TeamMemberController(ILogger<TeamMemberController> logger)
+        private readonly TeamMemberContext _context;
+        public TeamMemberController(ILogger<TeamMemberController> logger, TeamMemberContext context)
         {
             _logger = logger;
-            members = new List<TeamMember>();
+            _context = context;
         }
 
         [HttpPost]
-        public IActionResult Create(string name, string birthdate, string program, string year)
+        public IActionResult Create(int id, string name, string birthdate, string program, string year)
         {
-            int next;
-            for(int i = 0; i < TeamMembers.Count; i++)
-            {
-
-            }
-            members.Add(new TeamMember(name, birthdate, program, year));
+            
+            _context.TeamMembers.Add(new TeamMember(id, name, birthdate, program, year));
             return Ok();
         }
         
