@@ -11,10 +11,9 @@ namespace Final_Project.Models
         public int? Id { get; set; }
         public string Name { get; set; }
 
-        public string Birthdate { get; set; }
+        public int[] Birthdate { get; set; }
 
         public string CollegeProgram { get; set; }
-
         public string Year { get; set; }
     }
 }
