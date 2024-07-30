@@ -2,6 +2,7 @@ namespace Final_Project
 {
     public class TeamMember
     {
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public int[] Birthdate { get; set; }
@@ -9,9 +10,5 @@ namespace Final_Project
         public string CollegeProgram { get; set; }
 
         public string Year { get; set; }
-
-        public string Hobby { get; set; }
-
-
     }
 }
