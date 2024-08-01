@@ -12,13 +12,13 @@ namespace Final_Project.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<FavoriteBreakfastk>().HasData(
-                new FavoriteBreakfast (1, "Omkar Seth", "Animal Farm", 5.99, "08/17/1945"),
-                new FavoriteBreakfast (2, "Sunav Adhikari", "Harry Potter and the Goblet of Fire", 9.95, "07/08/2000"),
-                new FavoriteBreakfast (3, "Nathan Dahlquist", "House of Leaves", 14.95, "03/07/2000"),
-                new FavoriteBreakfast (4, "Sydney Hutton", "Ms.Peregrines Home for Peculiar Children", 12.99, "06/07/2011")
+                new FavoriteBreakfast (1, "Omkar Seth", "Waffles","A crispy batter cake with a gridlike design", 2.97),
+                new FavoriteBreakfast (2, "Sunav Adhikari", "Pancakes","circular baked pancake mix", 4.95),
+                new FavoriteBreakfast (3, "Nathan Dahlquist","Hash Browns", "Fried potato slices", 4.45),
+                new FavoriteBreakfast (4, "Sydney Hutton", "Bagels" "Two pieces of tooasted bread with creamcheese", 4.95)
                 );
         }
 
-        public DbSet<FavoriteBook> FavoriteBooks { get; set; }
+        public DbSet<FavoriteBreakfast> FavoriteBreakfasts { get; set; }
     }
 }
