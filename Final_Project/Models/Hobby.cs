@@ -2,7 +2,7 @@
 {
     public class Hobby
     {
-        public Hobby(int id, string Name, string HobbyName, string Description, string FrequencyPerWeek)
+        public Hobby(int id, string Name, string HobbyName, string Description, int FrequencyPerWeek)
         {
             this.Id = id;
             this.Name = Name;
@@ -15,6 +15,6 @@
         public string Name { get; set; }
         public string HobbyName { get; set; }
         public string Description { get; set; }
-        public string FrequencyPerWeek { get; set; }
+        public int FrequencyPerWeek { get; set; }
     }
 }

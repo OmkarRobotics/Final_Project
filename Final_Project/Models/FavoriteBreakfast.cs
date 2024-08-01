@@ -2,7 +2,7 @@
 {
     public class FavoriteBreakfast
     {
-        public FavoriteBreakfast(int id, string name, string breakfastName, string description, string price)
+        public FavoriteBreakfast(int id, string name, string breakfastName, string description, double price)
         {
             this.Id = id;
             this.Name = name;
@@ -15,6 +15,6 @@
         public string Name { get; set; }
         public string BreakfastName { get; set; }
         public string Description { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
     }
 }
