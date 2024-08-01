@@ -2,7 +2,7 @@
 {
     public class FavoriteBook
     {
-        public FavoriteBook(int id, string name, string bookName, string bookPrice, string releaseDate)
+        public FavoriteBook(int id, string name, string bookName, double bookPrice, string releaseDate)
         {
             this.Id = id;
             this.Name = name;
@@ -14,7 +14,7 @@
         public int? Id { get; set; }
         public string Name { get; set; }
         public string BookName { get; set; }
-        public string BookPrice { get; set; }
+        public double BookPrice { get; set; }
         public string ReleaseDate { get; set; }
     }
 }
