@@ -2,8 +2,9 @@
 {
     public class FavoriteBook
     {
-        public FavoriteBook(string name, string bookName, string bookPrice, string releaseDate)
+        public FavoriteBook(int id, string name, string bookName, string bookPrice, string releaseDate)
         {
+            this.Id = id;
             this.Name = name;
             this.BookName = bookName;
             this.BookPrice = bookPrice;
