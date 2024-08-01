@@ -22,24 +22,6 @@ namespace Final_Project.Data
 
         public DbSet<TeamMember> TeamMembers { get; set; }
 
-        public int AddMember(int id, string name, string birthdate, string program, string year)
-        {
-            foreach(var member in TeamMembers)
-            {
-                if(member.Id == id)
-                {
-                    return -1;
-                }
-            }
-            try
-            {
-                TeamMembers.Add(new TeamMember(id, name, birthdate, program, year));
-                SaveChanges();
-            } catch(Exception ex)
-            {
-                return -1;
-            }
-            return 1;
-        }
+        
     }
 }
