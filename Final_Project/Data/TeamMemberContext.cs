@@ -8,7 +8,6 @@ namespace Final_Project.Data
     {
         public TeamMemberContext(DbContextOptions<TeamMemberContext> options) : base(options) 
         {
-        
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
