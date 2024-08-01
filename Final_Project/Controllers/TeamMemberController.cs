@@ -10,13 +10,13 @@ namespace Final_Project.Controllers
     {
         
         private readonly ILogger<TeamMemberController> _logger;
-        private readonly TeamMemberContext _context;
-        public TeamMemberController(ILogger<TeamMemberController> logger, TeamMemberContext context)
+        private readonly TeamMemberContextDAO _context;
+        public TeamMemberController(ILogger<TeamMemberController> logger, TeamMemberContextDAO context)
         {
             _logger = logger;
             _context = context;
         }
-        public TeamMemberContextDAO
+        
         [HttpPost]
         public IActionResult Create(int id, string name, string birthdate, string program, string year)
         {
