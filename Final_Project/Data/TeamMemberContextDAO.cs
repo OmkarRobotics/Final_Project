@@ -5,8 +5,8 @@ namespace Final_Project.Data
 {
     public class TeamMemberContextDAO
     {
-        private readonly TeamMemberContext _context;
-        public TeamMemberContextDAO(TeamMemberContext context) {
+        private readonly ApplicationDBContext _context;
+        public TeamMemberContextDAO(ApplicationDBContext context) {
             _context = context;
         }
         public int AddMember(int id, string name, string birthdate, string program, string year)

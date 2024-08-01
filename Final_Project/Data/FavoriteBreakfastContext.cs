@@ -1,4 +1,4 @@
-using Final_Project.Models;
+/*using Final_Project.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Final_Project.Data
@@ -21,4 +21,4 @@ namespace Final_Project.Data
 
         public DbSet<FavoriteBreakfast> FavoriteBreakfasts { get; set; }
     }
-}
+}*/

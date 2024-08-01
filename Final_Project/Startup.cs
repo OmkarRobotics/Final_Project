@@ -21,18 +21,19 @@ namespace Final_Project
         { 
             services.AddControllers();
             services.AddSwaggerDocument();
-            services.AddDbContext<TeamMemberContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TeamMemberContext"))); // check connection string is correct 
-            services.AddScoped<TeamMemberContextDAO>();
+            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefualtConnection")));
+            //services.AddScoped<TeamMemberContextDAO>();
+
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, TeamMemberContext context) 
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDBContext context) 
         {
             if (env.IsDevelopment())
             { 
                 app.UseDeveloperExceptionPage();
             }
             app.UseOpenApi();
-            app.UseSwaggerUI(); // maybe add 3   
+            app.UseSwaggerUI(); 
             context.Database.Migrate();
 
             app.UseHttpsRedirection();
