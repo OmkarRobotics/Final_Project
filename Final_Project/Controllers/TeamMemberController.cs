@@ -8,11 +8,7 @@ namespace Final_Project.Controllers
     [Route("[controller]")]
     public class TeamMemberController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
+        
         private readonly ILogger<TeamMemberController> _logger;
         private readonly TeamMemberContext _context;
         public TeamMemberController(ILogger<TeamMemberController> logger, TeamMemberContext context)
