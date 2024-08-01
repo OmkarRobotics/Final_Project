@@ -1,6 +1,7 @@
 using Final_Project.Data;
 using Final_Project.Models;
 using Microsoft.AspNetCore.Mvc;
+using Final_Project.Interfaces;
 
 namespace Final_Project.Controllers
 {
@@ -10,8 +11,8 @@ namespace Final_Project.Controllers
     {
         
         private readonly ILogger<TeamMemberController> _logger;
-        private readonly TeamMemberContextDAO _context;
-        public TeamMemberController(ILogger<TeamMemberController> logger, TeamMemberContextDAO context)
+        private readonly ITeamMemberContextDAO _context;
+        public TeamMemberController(ILogger<TeamMemberController> logger, ITeamMemberContextDAO context)
         {
             _logger = logger;
             _context = context;

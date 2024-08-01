@@ -1,10 +1,11 @@
 ﻿using Final_Project.Models;
+using Final_Project.Interfaces;
 
 namespace Final_Project.Data
 {
-    public class TeamMemberContextDAO
+    public class TeamMemberContextDAO : ITeamMemberContextDAO
     {
-        TeamMemberContext _context;
+        private readonly TeamMemberContext _context;
         public TeamMemberContextDAO(TeamMemberContext context) {
             _context = context;
         }
