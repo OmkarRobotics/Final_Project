@@ -22,7 +22,7 @@ namespace Final_Project
         { 
             services.AddControllers();
             services.AddSwaggerDocument();
-            services.AddDbContext<TeamMemberContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TeamMemberContext")));
+            services.AddDbContext<TeamMemberContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TeamMemberContext"))); // check connection string is correct 
             services.AddScoped<ITeamMemberContextDAO, TeamMemberContextDAO>();
         }
 
@@ -32,8 +32,8 @@ namespace Final_Project
             { 
                 app.UseDeveloperExceptionPage();
             }
-            app.UseOpenAPI();
-            app.UseSwaggerUI3(); 
+            app.UseOpenApi();
+            app.UseSwaggerUI(); // maybe add 3   
             context.Database.Migrate();
 
             app.UseHttpsRedirection();
