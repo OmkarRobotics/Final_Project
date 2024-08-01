@@ -21,8 +21,13 @@ namespace Final_Project.Controllers
         public IActionResult Create(int id, string name, string birthdate, string program, string year)
         {
             
-            _context.TeamMembers.Add(new TeamMember(id, name, birthdate, program, year));
-            return Ok();
+            if(_context.AddMember(id, name, birthdate, program, year) > 0)
+            {
+                return Ok("Team member added.");
+            } else
+            {
+                return Ok("An internal error occurred.");
+            }
         }
         
     }
