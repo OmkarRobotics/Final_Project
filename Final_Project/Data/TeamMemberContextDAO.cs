@@ -29,9 +29,26 @@ namespace Final_Project.Data
             }
             return 1;
         }
-        public TeamMember? GetMember(int id)
+        public List<TeamMember> GetMember(int? id)
         {
-            return _context.TeamMembers.FirstOrDefault(x => x.Id == id);
+            List<TeamMember> teamMembers = teamMembers = _context.TeamMembers.ToList().OrderByDescending(x => -x.Id).ToList();
+            List<TeamMember> returnList = new List<TeamMember>();
+            var teamMember = _context.TeamMembers.FirstOrDefault(x => x.Id == id);
+            if(teamMember == null)
+            {
+                for(int i = 0; i < 5; i++)
+                {
+                    if (i == teamMembers.Count)
+                    {
+                        break;
+                    }
+                    returnList.Add(teamMembers[i]);
+                }
+            } else
+            {
+                returnList.Add(teamMember);
+            }
+            return teamMembers;
         }
     }
 }

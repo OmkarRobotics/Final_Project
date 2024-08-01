@@ -31,11 +31,11 @@ namespace Final_Project.Controllers
             }
         }
         [HttpGet]
-        public IActionResult Get(int id)
+        public IActionResult Read(int id)
         {
-            if(_context.GetMember(id) == null)
+            if(_context.GetMember(id).Count == 1)
             {
-                return NotFound();
+                return Ok(_context.GetMember(id)[0]);
             }
             return Ok(_context.GetMember(id));
         }
