@@ -22,11 +22,15 @@ namespace Final_Project.Data
                 _context.TeamMembers.Add(new TeamMember(id, name, birthdate, program, year));
                 _context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return -1;
             }
             return 1;
+        }
+        public TeamMember? GetMember(int id)
+        {
+            return _context.TeamMembers.FirstOrDefault(x => x.Id == id);
         }
     }
 }

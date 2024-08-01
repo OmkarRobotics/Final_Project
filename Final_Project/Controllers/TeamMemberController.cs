@@ -29,6 +29,10 @@ namespace Final_Project.Controllers
                 return Ok("An internal error occurred.");
             }
         }
-        
+        [HttpGet]
+        public IActionResult Get(int id)
+        {
+            return Ok(_context.GetMember(id));
+        }
     }
 }
