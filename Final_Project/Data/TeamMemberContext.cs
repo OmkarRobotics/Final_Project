@@ -34,6 +34,7 @@ namespace Final_Project.Data
             try
             {
                 TeamMembers.Add(new TeamMember(id, name, birthdate, program, year));
+                SaveChanges();
             } catch(Exception ex)
             {
                 return -1;
