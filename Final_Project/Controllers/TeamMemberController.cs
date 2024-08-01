@@ -32,6 +32,10 @@ namespace Final_Project.Controllers
         [HttpGet]
         public IActionResult Get(int id)
         {
+            if(_context.GetMember(id) == null)
+            {
+                return NotFound();
+            }
             return Ok(_context.GetMember(id));
         }
     }
