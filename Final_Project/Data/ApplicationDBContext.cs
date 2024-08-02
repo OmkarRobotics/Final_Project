@@ -55,6 +55,7 @@ namespace Final_Project.Data
                     return -1;
                 }
             }
+            Database.ExecuteSqlRaw("SET IDENTITY_INSERT TeamMembers ON");
             try
             {
                 TeamMembers.Add(new TeamMember(id, name, birthdate, program, year));
@@ -62,7 +63,7 @@ namespace Final_Project.Data
             }
             catch (Exception e)
             {
-                return -1;
+               return -1;
             }
             return 1;
         }
