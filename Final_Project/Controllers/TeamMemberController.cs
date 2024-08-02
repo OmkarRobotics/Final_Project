@@ -44,5 +44,20 @@ namespace Final_Project.Controllers
             }
             return Ok(_context.GetMember(id));
         }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            if (_context.DeleteMember(id) == 1)
+            {
+                return Ok("Team member deleted");
+            }
+            else
+            {
+                return StatusCode(500, "An internal error occurred.");
+            }
+
+        }
+
     }
 }

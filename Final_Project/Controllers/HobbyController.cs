@@ -46,5 +46,20 @@ namespace Final_Project.Controllers
             }
             return Ok(_context.GetHobby(id));
         }
+        [HttpPut]
+        public IActionResult Update(Hobby hobby)
+        {
+            if(_context.PutHobby(hobby) == null)
+            {
+                return NotFound();
+            }
+            if(_context.PutHobby(hobby) > 0)
+            {
+                return Ok("Hobby updated.");
+            } else
+            {
+                return StatusCode(500, "An internal error occurred.");
+            }
+        }
     }
 }

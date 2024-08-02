@@ -1,5 +1,6 @@
 ﻿using Final_Project.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace Final_Project.Data
 {
@@ -190,6 +191,48 @@ namespace Final_Project.Data
                 returnList.Add(book);
             }
             return returnList;
+        }
+
+        public int? PutHobby(Hobby inHobby)
+        {
+            if (GetHobby(inHobby.Id).Count > 1)
+            {
+                return null;
+            }
+            var hobby = GetHobby(inHobby.Id)[0];
+            try
+            {
+                hobby.Name = inHobby.Name;
+                hobby.HobbyName = inHobby.HobbyName;
+                hobby.Description = inHobby.Description;
+                hobby.FrequencyPerWeek = inHobby.FrequencyPerWeek;
+                Hobbies.Update(hobby);
+                SaveChanges();
+            } catch (Exception)
+            {
+                return -1;
+            }
+            return 1;
+        }
+
+        public int DeleteMember(int id)
+        {
+            var teamMembers = GetMember(id);
+            if (teamMembers.Count > 1)
+            {
+                return -1;
+            }
+            TeamMember teamMember = teamMembers[0];
+            try
+            {
+                TeamMembers.Remove(teamMember);
+                SaveChanges();
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return 1;
         }
     }
 }
