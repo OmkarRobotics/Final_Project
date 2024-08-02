@@ -11,7 +11,7 @@
             this.Price = price;
         }
 
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string BreakfastName { get; set; }
         public string Description { get; set; }

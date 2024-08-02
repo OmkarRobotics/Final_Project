@@ -68,7 +68,7 @@ namespace Final_Project.Data
         }
         public List<TeamMember> GetMember(int? id)
         {
-            List<TeamMember> teamMembers = teamMembers = TeamMembers.ToList().OrderByDescending(x => -x.Id).ToList();
+            List<TeamMember> teamMembers = TeamMembers.ToList().OrderByDescending(x => -(x.Id)).ToList();
             List<TeamMember> returnList = new List<TeamMember>();
             var teamMember = TeamMembers.FirstOrDefault(x => x.Id == id);
             if (teamMember == null)

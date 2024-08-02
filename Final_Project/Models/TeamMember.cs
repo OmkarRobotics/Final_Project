@@ -10,7 +10,7 @@ namespace Final_Project.Models
             this.Year = Year;
         }
 
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Birthdate { get; set; }
         public string CollegeProgram { get; set; }

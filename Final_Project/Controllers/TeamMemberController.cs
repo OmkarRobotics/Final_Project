@@ -30,7 +30,7 @@ namespace Final_Project.Controllers
             }
         }
         [HttpGet]
-        public IActionResult Read(int id)
+        public IActionResult Read(int? id)
         {
             if(_context.GetMember(id).Count == 1)
             {

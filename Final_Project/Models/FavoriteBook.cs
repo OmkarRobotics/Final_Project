@@ -11,7 +11,7 @@
             this.ReleaseDate = releaseDate;
         }
 
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string BookName { get; set; }
         public double BookPrice { get; set; }
