@@ -1,4 +1,6 @@
 using Final_Project.Data;
+using Final_Project.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,3 +33,43 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+/*
+public int DeleteMember(int id)
+{
+    var teamMember = GetMember(id);
+    if (teamMember.Count > 1)
+    {
+        return -1;
+    }
+    else
+    {
+        try
+        {
+            TeamMembers.Remove(teamMember);
+            SaveChanges();
+        }
+        catch (Exception e)
+        {
+            return -1;
+        }
+        return 1;
+    }
+
+
+
+}*/
+
+/*
+[HttpDelete]
+public IActionResult Delete(int id)
+{
+    if (_context.DeleteMember(id).Count == 1)
+    {
+        return Ok("Team member deleted");
+    }
+    else
+    {
+        return StatusCode(500, "An internal error occurred.");
+    }
+
+}*/
