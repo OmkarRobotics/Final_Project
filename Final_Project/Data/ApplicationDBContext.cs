@@ -88,6 +88,139 @@ namespace Final_Project.Data
             }
             return returnList;
         }
+        public int AddHobby(int id, string name, string description, int frequency)
+        {
+            foreach (var hobby in Hobbies)
+            {
+                if (hobby.Id == id)
+                {
+                    return -1;
+                }
+            }
+            try
+            {
+                Hobbies.Add(new Hobby(id, name, description, frequency));
+                SaveChanges();
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            return 1;
+        }
+
+        public List<Hobby> GetHobby(int? id)
+        {
+            List<Hobby> hobbies = Hobbies.ToList().OrderByDescending(x => -(x.Id)).ToList();
+            List<Hobby> returnList = new List<Hobby>();
+            var hobby = Hobbies.FirstOrDefault(x => x.Id == id);
+            if (hobby == null)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (i == hobbies.Count)
+                    {
+                        break;
+                    }
+                    returnList.Add(hobbies[i]);
+                }
+            }
+            else
+            {
+                returnList.Add(hobby);
+            }
+            return returnList;
+        }
+
+        public int AddFavoriteBreakfast(int id, string name, string description, double price)
+        {
+            foreach (var breakfast in FavoriteBreakfasts)
+            {
+                if (breakfast.Id == id)
+                {
+                    return -1;
+                }
+            }
+            try
+            {
+                FavoriteBreakfasts.Add(new FavoriteBreakfast(id, name, description, price));
+                SaveChanges();
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            return 1;
+        }
+
+        public List<FavoriteBreakfast> GetFavoriteBreakfast(int? id)
+        {
+            List<FavoriteBreakfast> breakfasts = FavoriteBreakfasts.ToList().OrderByDescending(x => -(x.Id)).ToList();
+            List<FavoriteBreakfast> returnList = new List<FavoriteBreakfast>();
+            var breakfast = FavoriteBreakfasts.FirstOrDefault(x => x.Id == id);
+            if (breakfast == null)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (i == breakfasts.Count)
+                    {
+                        break;
+                    }
+                    returnList.Add(breakfasts[i]);
+                }
+            }
+            else
+            {
+                returnList.Add(breakfast);
+            }
+            return returnList;
+        }
+
+        public int AddFavoriteBook(int id, string name, string title, double price, string publishedDate)
+        {
+            foreach (var book in FavoriteBooks)
+            {
+                if (book.Id == id)
+                {
+                    return -1;
+                }
+            }
+            try
+            {
+                FavoriteBooks.Add(new FavoriteBook(id, name, title, price, publishedDate));
+                SaveChanges();
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            return 1;
+        }
+
+        public List<FavoriteBook> GetFavoriteBook(int? id)
+        {
+            List<FavoriteBook> books = FavoriteBooks.ToList().OrderByDescending(x => -(x.Id)).ToList();
+            List<FavoriteBook> returnList = new List<FavoriteBook>();
+            var book = FavoriteBooks.FirstOrDefault(x => x.Id == id);
+            if (book == null)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (i == books.Count)
+                    {
+                        break;
+                    }
+                    returnList.Add(books[i]);
+                }
+            }
+            else
+            {
+                returnList.Add(book);
+            }
+            return returnList;
+        }
+    }
+}
 
     }
 }
