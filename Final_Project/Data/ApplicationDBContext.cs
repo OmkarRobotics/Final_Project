@@ -55,15 +55,15 @@ namespace Final_Project.Data
                     return -1;
                 }
             }
-            //try
-            //{
+            try
+            {
                 TeamMembers.Add(new TeamMember(id, name, birthdate, program, year));
                 SaveChanges();
-            //}
-            //catch (Exception e)
-            //{
-            //    return -1;
-            //}
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
             return 1;
         }
         public List<TeamMember> GetMember(int? id)
