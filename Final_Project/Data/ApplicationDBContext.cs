@@ -88,7 +88,7 @@ namespace Final_Project.Data
             }
             return returnList;
         }
-        public int AddHobby(int id, string name, string description, int frequency)
+        public int AddHobby(int id, string name, string hobbyname, string description, int frequency)
         {
             foreach (var hobby in Hobbies)
             {
@@ -99,7 +99,7 @@ namespace Final_Project.Data
             }
             try
             {
-                Hobbies.Add(new Hobby(id, name, description, frequency));
+                Hobbies.Add(new Hobby(id, name, hobbyname, description, frequency));
                 SaveChanges();
             }
             catch (Exception)
