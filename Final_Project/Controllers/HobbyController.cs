@@ -24,7 +24,7 @@ namespace Final_Project.Controllers
             {
                 if (member.Name.Equals(name) && member.HobbyName.Equals(hobbyName) && member.Description.Equals(description) && member.FrequencyPerWeek == frequency)
                 {
-                    return StatusCode(500, "An internal error occurred.");
+                    return StatusCode(400, "This data element already exists");
                 }
             }
             if (_context.AddHobby(name, hobbyName, description, frequency) > 0)

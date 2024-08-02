@@ -24,7 +24,7 @@ namespace Final_Project.Controllers
             {
                 if (member.Name.Equals(name) && member.BreakfastName.Equals(breakfastName) && member.Description.Equals(description) && member.Price == price)
                 {
-                    return StatusCode(500, "An internal error occurred.");
+                    return StatusCode(400, "This data element already exists");
                 }
             }
             if (_context.AddFavoriteBreakfast(name, breakfastName, description, price) > 0)

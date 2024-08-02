@@ -24,7 +24,7 @@ namespace Final_Project.Controllers
             {
                 if(member.Name.Equals(name) && member.Birthdate.Equals(birthdate) && member.CollegeProgram.Equals(program) && member.Year.Equals(year))
                 {
-                    return StatusCode(500, "An internal error occurred.");
+                    return StatusCode(400, "This data element already exists");
                 }
             }
             if(_context.AddMember(name, birthdate, program, year) > 0)

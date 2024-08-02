@@ -24,7 +24,7 @@ namespace Final_Project.Controllers
             {
                 if (member.Name.Equals(name) && member.BookName.Equals(title) && member.BookPrice == price && member.ReleaseDate.Equals(publishedDate))
                 {
-                    return StatusCode(500, "An internal error occurred.");
+                    return StatusCode(400, "This data element already exists");
                 }
             }
             if (_context.AddFavoriteBook(name, title, price, publishedDate) > 0)
