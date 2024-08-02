@@ -132,7 +132,7 @@ namespace Final_Project.Data
             return returnList;
         }
 
-        public int AddFavoriteBreakfast(int id, string name, string description, double price)
+        public int AddFavoriteBreakfast(int id, string name, string breakfastname, string description, double price)
         {
             foreach (var breakfast in FavoriteBreakfasts)
             {
@@ -143,7 +143,7 @@ namespace Final_Project.Data
             }
             try
             {
-                FavoriteBreakfasts.Add(new FavoriteBreakfast(id, name, description, price));
+                FavoriteBreakfasts.Add(new FavoriteBreakfast(id, name, breakfastname, description, price));
                 SaveChanges();
             }
             catch (Exception)
@@ -222,5 +222,3 @@ namespace Final_Project.Data
     }
 }
 
-    }
-}
