@@ -20,6 +20,13 @@ namespace Final_Project.Controllers
         [HttpPost]
         public IActionResult Create(string name, string title, double price, string publishedDate)
         {
+            foreach (var member in _context.FavoriteBooks)
+            {
+                if (member.Name.Equals(name) && member.BookName.Equals(title) && member.BookPrice == price && member.ReleaseDate.Equals(publishedDate))
+                {
+                    return StatusCode(500, "An internal error occurred.");
+                }
+            }
             if (_context.AddFavoriteBook(name, title, price, publishedDate) > 0)
             {
                 return Ok("Favorite book added.");

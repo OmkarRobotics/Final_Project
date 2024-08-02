@@ -20,6 +20,13 @@ namespace Final_Project.Controllers
         [HttpPost]
         public IActionResult Create(string name, string birthdate, string program, string year)
         {
+            foreach(var member in _context.TeamMembers)
+            {
+                if(member.Name.Equals(name) && member.Birthdate.Equals(birthdate) && member.CollegeProgram.Equals(program) && member.Year.Equals(year))
+                {
+                    return StatusCode(500, "An internal error occurred.");
+                }
+            }
             if(_context.AddMember(name, birthdate, program, year) > 0)
             {
                 return Ok("Team member added.");

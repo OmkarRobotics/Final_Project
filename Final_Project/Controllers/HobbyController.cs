@@ -20,6 +20,13 @@ namespace Final_Project.Controllers
         [HttpPost]
         public IActionResult Create(string name, string hobbyName, string description, int frequency)
         {
+            foreach (var member in _context.Hobbies)
+            {
+                if (member.Name.Equals(name) && member.HobbyName.Equals(hobbyName) && member.Description.Equals(description) && member.FrequencyPerWeek == frequency)
+                {
+                    return StatusCode(500, "An internal error occurred.");
+                }
+            }
             if (_context.AddHobby(name, hobbyName, description, frequency) > 0)
             {
                 return Ok("Hobby added.");
