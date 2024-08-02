@@ -46,19 +46,11 @@ namespace Final_Project.Data
         public DbSet<Hobby> Hobbies { get; set; }
 
 
-        public int AddMember(int id, string name, string birthdate, string program, string year)
+        public int AddMember(string name, string birthdate, string program, string year)
         {
-            foreach (var member in TeamMembers)
-            {
-                if (member.Id == id)
-                {
-                    return -1;
-                }
-            }
-            Database.ExecuteSqlRaw("SET IDENTITY_INSERT TeamMembers ON");
             try
             {
-                TeamMembers.Add(new TeamMember(id, name, birthdate, program, year));
+                TeamMembers.Add(new TeamMember(null, name, birthdate, program, year));
                 SaveChanges();
             }
             catch (Exception e)
@@ -89,18 +81,11 @@ namespace Final_Project.Data
             }
             return returnList;
         }
-        public int AddHobby(int id, string name, string hobbyname, string description, int frequency)
+        public int AddHobby(string name, string hobbyname, string description, int frequency)
         {
-            foreach (var hobby in Hobbies)
-            {
-                if (hobby.Id == id)
-                {
-                    return -1;
-                }
-            }
             try
             {
-                Hobbies.Add(new Hobby(id, name, hobbyname, description, frequency));
+                Hobbies.Add(new Hobby(null, name, hobbyname, description, frequency));
                 SaveChanges();
             }
             catch (Exception)
@@ -133,18 +118,11 @@ namespace Final_Project.Data
             return returnList;
         }
 
-        public int AddFavoriteBreakfast(int id, string name, string breakfastname, string description, double price)
+        public int AddFavoriteBreakfast(string name, string breakfastname, string description, double price)
         {
-            foreach (var breakfast in FavoriteBreakfasts)
-            {
-                if (breakfast.Id == id)
-                {
-                    return -1;
-                }
-            }
             try
             {
-                FavoriteBreakfasts.Add(new FavoriteBreakfast(id, name, breakfastname, description, price));
+                FavoriteBreakfasts.Add(new FavoriteBreakfast(null, name, breakfastname, description, price));
                 SaveChanges();
             }
             catch (Exception)
@@ -177,18 +155,11 @@ namespace Final_Project.Data
             return returnList;
         }
 
-        public int AddFavoriteBook(int id, string name, string title, double price, string publishedDate)
+        public int AddFavoriteBook(string name, string title, double price, string publishedDate)
         {
-            foreach (var book in FavoriteBooks)
-            {
-                if (book.Id == id)
-                {
-                    return -1;
-                }
-            }
             try
             {
-                FavoriteBooks.Add(new FavoriteBook(id, name, title, price, publishedDate));
+                FavoriteBooks.Add(new FavoriteBook(null, name, title, price, publishedDate));
                 SaveChanges();
             }
             catch (Exception)

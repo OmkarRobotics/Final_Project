@@ -18,9 +18,9 @@ namespace Final_Project.Controllers
         }
         
         [HttpPost]
-        public IActionResult Create(int id, string name, string birthdate, string program, string year)
+        public IActionResult Create(string name, string birthdate, string program, string year)
         {
-            if(_context.AddMember(id, name, birthdate, program, year) > 0)
+            if(_context.AddMember(name, birthdate, program, year) > 0)
             {
                 return Ok("Team member added.");
             } else

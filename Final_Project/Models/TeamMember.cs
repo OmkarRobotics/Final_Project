@@ -2,7 +2,7 @@ namespace Final_Project.Models
 {
     public class TeamMember
     {
-        public TeamMember(int Id, string Name, string Birthdate, string CollegeProgram, string Year) { 
+        public TeamMember(int? Id, string Name, string Birthdate, string CollegeProgram, string Year) { 
             this.Id = Id;
             this.Name = Name;
             this.Birthdate = Birthdate;
@@ -10,7 +10,7 @@ namespace Final_Project.Models
             this.Year = Year;
         }
 
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public string Birthdate { get; set; }
         public string CollegeProgram { get; set; }

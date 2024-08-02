@@ -18,9 +18,9 @@ namespace Final_Project.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(int id, string name, string hobbyName, string description, int frequency)
+        public IActionResult Create(string name, string hobbyName, string description, int frequency)
         {
-            if (_context.AddHobby(id, name, hobbyName, description, frequency) > 0)
+            if (_context.AddHobby(name, hobbyName, description, frequency) > 0)
             {
                 return Ok("Hobby added.");
             }

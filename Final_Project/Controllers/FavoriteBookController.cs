@@ -18,9 +18,9 @@ namespace Final_Project.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(int id, string name, string title, double price, string publishedDate)
+        public IActionResult Create(string name, string title, double price, string publishedDate)
         {
-            if (_context.AddFavoriteBook(id, name, title, price, publishedDate) > 0)
+            if (_context.AddFavoriteBook(name, title, price, publishedDate) > 0)
             {
                 return Ok("Favorite book added.");
             }
