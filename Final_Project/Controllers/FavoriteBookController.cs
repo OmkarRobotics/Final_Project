@@ -46,5 +46,37 @@ namespace Final_Project.Controllers
             }
             return Ok(_context.GetFavoriteBook(id));
         }
+
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            if (_context.DeleteFavoriteBook(id) == 1)
+            {
+                return Ok("Favorite book deleted");
+            }
+            else
+            {
+                return StatusCode(500, "An internal error occurred.");
+            }
+
+        }
+
+        [HttpPut]
+        public IActionResult Update(FavoriteBook favoriteBook)
+        {
+            if (_context.PutFavoriteBook(favoriteBook) == null)
+            {
+                return NotFound();
+            }
+            if (_context.PutFavoriteBook(favoriteBook) > 0)
+            {
+                return Ok("Favorite book updated.");
+            }
+            else
+            {
+                return StatusCode(500, "An internal error occurred.");
+            }
+        }
     }
 }

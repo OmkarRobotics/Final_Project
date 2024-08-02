@@ -46,5 +46,36 @@ namespace Final_Project.Controllers
             }
             return Ok(_context.GetFavoriteBreakfast(id));
         }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            if (_context.DeleteFavoriteBreakfast(id) == 1)
+            {
+                return Ok("Favorite breakfast deleted");
+            }
+            else
+            {
+                return StatusCode(500, "An internal error occurred.");
+            }
+
+        }
+
+        [HttpPut]
+        public IActionResult Update(FavoriteBreakfast favoriteBreakfast)
+        {
+            if (_context.PutFavoriteBreakfast(favoriteBreakfast) == null)
+            {
+                return NotFound();
+            }
+            if (_context.PutFavoriteBreakfast(favoriteBreakfast) > 0)
+            {
+                return Ok("Favorite breakfast updated.");
+            }
+            else
+            {
+                return StatusCode(500, "An internal error occurred.");
+            }
+        }
     }
 }

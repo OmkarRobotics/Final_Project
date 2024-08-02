@@ -29,7 +29,7 @@ namespace Final_Project.Controllers
             }
             if(_context.AddMember(name, birthdate, program, year) > 0)
             {
-                return Ok("Team member added.");
+                return Ok("Team member added");
             } else
             {
                 return StatusCode(500,"An internal error occurred.");
@@ -57,6 +57,23 @@ namespace Final_Project.Controllers
                 return StatusCode(500, "An internal error occurred.");
             }
 
+        }
+
+        [HttpPut]
+        public IActionResult Update(TeamMember teamMember)
+        {
+            if (_context.PutMember(teamMember) == null)
+            {
+                return NotFound();
+            }
+            if (_context.PutMember(teamMember) > 0)
+            {
+                return Ok("Team member updated.");
+            }
+            else
+            {
+                return StatusCode(500, "An internal error occurred.");
+            }
         }
 
     }

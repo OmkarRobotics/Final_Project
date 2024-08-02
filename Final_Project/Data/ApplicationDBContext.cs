@@ -82,6 +82,48 @@ namespace Final_Project.Data
             }
             return returnList;
         }
+        public int DeleteMember(int id)
+        {
+            var teamMembers = GetMember(id);
+            if (teamMembers.Count > 1)
+            {
+                return -1;
+            }
+            TeamMember teamMember = teamMembers[0];
+            try
+            {
+                TeamMembers.Remove(teamMember);
+                SaveChanges();
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return 1;
+        }
+
+        public int? PutMember(TeamMember inTeamMember)
+        {
+            if (GetMember(inTeamMember.Id).Count > 1)
+            {
+                return null;
+            }
+            var teamMember = GetMember(inTeamMember.Id)[0];
+            try
+            {
+                teamMember.Name = inTeamMember.Name;
+                teamMember.Birthdate = inTeamMember.Birthdate;
+                teamMember.CollegeProgram = inTeamMember.CollegeProgram;
+                teamMember.Year = inTeamMember.Year;
+                TeamMembers.Update(teamMember);
+                SaveChanges();
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            return 1;
+        }
         public int AddHobby(string name, string hobbyname, string description, int frequency)
         {
             try
@@ -117,6 +159,50 @@ namespace Final_Project.Data
                 returnList.Add(hobby);
             }
             return returnList;
+        }
+
+        public int DeleteHobby(int id)
+        {
+            var hobbies = GetHobby(id);
+            if (hobbies.Count > 1)
+            {
+                return -1;
+            }
+            Hobby hobby = hobbies[0];
+            try
+            {
+                Hobbies.Remove(hobby);
+                SaveChanges();
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return 1;
+        }
+
+
+        public int? PutHobby(Hobby inHobby)
+        {
+            if (GetHobby(inHobby.Id).Count > 1)
+            {
+                return null;
+            }
+            var hobby = GetHobby(inHobby.Id)[0];
+            try
+            {
+                hobby.Name = inHobby.Name;
+                hobby.HobbyName = inHobby.HobbyName;
+                hobby.Description = inHobby.Description;
+                hobby.FrequencyPerWeek = inHobby.FrequencyPerWeek;
+                Hobbies.Update(hobby);
+                SaveChanges();
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            return 1;
         }
 
         public int AddFavoriteBreakfast(string name, string breakfastname, string description, double price)
@@ -156,6 +242,50 @@ namespace Final_Project.Data
             return returnList;
         }
 
+        public int DeleteFavoriteBreakfast(int id)
+        {
+            var favoriteBreakfasts = GetFavoriteBreakfast(id);
+            if (favoriteBreakfasts.Count > 1)
+            {
+                return -1;
+            }
+            FavoriteBreakfast favoriteBreakfast = favoriteBreakfasts[0];
+            try
+            {
+                FavoriteBreakfasts.Remove(favoriteBreakfast);
+                SaveChanges();
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return 1;
+        }
+
+
+        public int? PutFavoriteBreakfast(FavoriteBreakfast inFavoriteBreakfast)
+        {
+            if (GetFavoriteBreakfast(inFavoriteBreakfast.Id).Count > 1)
+            {
+                return null;
+            }
+            var favoriteBreakfast = GetFavoriteBreakfast(inFavoriteBreakfast.Id)[0];
+            try
+            {
+                favoriteBreakfast.Name = inFavoriteBreakfast.Name;
+                favoriteBreakfast.BreakfastName = inFavoriteBreakfast.BreakfastName;
+                favoriteBreakfast.Description = inFavoriteBreakfast.Description;
+                favoriteBreakfast.Price = inFavoriteBreakfast.Price;
+                FavoriteBreakfasts.Update(favoriteBreakfast);
+                SaveChanges();
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            return 1;
+        }
+
         public int AddFavoriteBook(string name, string title, double price, string publishedDate)
         {
             try
@@ -193,39 +323,18 @@ namespace Final_Project.Data
             return returnList;
         }
 
-        public int? PutHobby(Hobby inHobby)
-        {
-            if (GetHobby(inHobby.Id).Count > 1)
-            {
-                return null;
-            }
-            var hobby = GetHobby(inHobby.Id)[0];
-            try
-            {
-                hobby.Name = inHobby.Name;
-                hobby.HobbyName = inHobby.HobbyName;
-                hobby.Description = inHobby.Description;
-                hobby.FrequencyPerWeek = inHobby.FrequencyPerWeek;
-                Hobbies.Update(hobby);
-                SaveChanges();
-            } catch (Exception)
-            {
-                return -1;
-            }
-            return 1;
-        }
 
-        public int DeleteMember(int id)
+        public int DeleteFavoriteBook(int id)
         {
-            var teamMembers = GetMember(id);
-            if (teamMembers.Count > 1)
+            var favoriteBooks = GetFavoriteBook(id);
+            if (favoriteBooks.Count > 1)
             {
                 return -1;
             }
-            TeamMember teamMember = teamMembers[0];
+            FavoriteBook favoriteBook = favoriteBooks[0];
             try
             {
-                TeamMembers.Remove(teamMember);
+                FavoriteBooks.Remove(favoriteBook);
                 SaveChanges();
             }
             catch (Exception e)
@@ -234,6 +343,32 @@ namespace Final_Project.Data
             }
             return 1;
         }
+
+
+        public int? PutFavoriteBook(FavoriteBook inFavoriteBook)
+        {
+            if (GetFavoriteBook(inFavoriteBook.Id).Count > 1)
+            {
+                return null;
+            }
+            var favoriteBook = GetFavoriteBook(inFavoriteBook.Id)[0];
+            try
+            {
+                favoriteBook.Name = inFavoriteBook.Name;
+                favoriteBook.BookName = inFavoriteBook.BookName;
+                favoriteBook.BookPrice = inFavoriteBook.BookPrice;
+                favoriteBook.ReleaseDate = inFavoriteBook.ReleaseDate;
+                FavoriteBooks.Update(favoriteBook);
+                SaveChanges();
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            return 1;
+        }
+
     }
 }
+
 

@@ -46,6 +46,21 @@ namespace Final_Project.Controllers
             }
             return Ok(_context.GetHobby(id));
         }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            if (_context.DeleteHobby(id) == 1)
+            {
+                return Ok("Hobby deleted");
+            }
+            else
+            {
+                return StatusCode(500, "An internal error occurred.");
+            }
+
+        }
+
         [HttpPut]
         public IActionResult Update(Hobby hobby)
         {
