@@ -26,7 +26,7 @@ namespace Final_Project.Controllers
                 return Ok("Team member added.");
             } else
             {
-                return Ok("An internal error occurred.");
+                return StatusCode(500,"An internal error occurred.");
             }
         }
         [HttpGet]
