@@ -86,7 +86,7 @@ namespace Final_Project.Data
             {
                 returnList.Add(teamMember);
             }
-            return teamMembers;
+            return returnList;
         }
 
     }
