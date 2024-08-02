@@ -31,19 +31,63 @@ namespace Final_Project.Data
                 new FavoriteBreakfast(4, "Sydney Hutton", "Bagels", "Two pieces of toasted bread with creamcheese", 4.95)
                 );
             builder.Entity<Hobby>().HasData(
-                new Hobby(1, "Sydney Hutton", "Art", "Creating collages", 3),
-                new Hobby(2, "Nathan Dahlquist", "Vintage Tech Collecting", "Collecting and learning about retro hardware, especially video game related", 2),
-                new Hobby(3, "Sunav Adhikari", "Swimming", "Breaststroke and Backstroke", 5),
-                new Hobby(4, "Omkar Seth", "Piano", "Playing classical music", 3)
+                new Hobby(1, "Omkar Seth", "Piano", "Playing classical music", 3),
+                new Hobby(2, "Sunav Adhikari", "Swimming", "Breaststroke and Backstroke", 5),
+                new Hobby(3, "Nathan Dahlquist", "Vintage Tech Collecting", "Collecting and learning about retro hardware, especially video game related", 2),
+                new Hobby(4, "Sydney Hutton", "Art", "Creating collages", 3)
+
             );
         }
+        public DbSet<TeamMember> TeamMembers { get; set; }
 
         public DbSet<FavoriteBook> FavoriteBooks { get; set; }
         public DbSet<FavoriteBreakfast> FavoriteBreakfasts { get; set; }
 
         public DbSet<Hobby> Hobbies { get; set; }
 
-        public DbSet<TeamMember> TeamMembers { get; set; }
+
+        public int AddMember(int id, string name, string birthdate, string program, string year)
+        {
+            foreach (var member in TeamMembers)
+            {
+                if (member.Id == id)
+                {
+                    return -1;
+                }
+            }
+            try
+            {
+                TeamMembers.Add(new TeamMember(id, name, birthdate, program, year));
+                SaveChanges();
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            return 1;
+        }
+        public List<TeamMember> GetMember(int? id)
+        {
+            List<TeamMember> teamMembers = teamMembers = TeamMembers.ToList().OrderByDescending(x => -x.Id).ToList();
+            List<TeamMember> returnList = new List<TeamMember>();
+            var teamMember = TeamMembers.FirstOrDefault(x => x.Id == id);
+            if (teamMember == null)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (i == teamMembers.Count)
+                    {
+                        break;
+                    }
+                    returnList.Add(teamMembers[i]);
+                }
+            }
+            else
+            {
+                returnList.Add(teamMember);
+            }
+            return teamMembers;
+        }
 
     }
 }

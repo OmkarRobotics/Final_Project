@@ -1,24 +1,24 @@
-﻿using Final_Project.Data;
-using Microsoft.AspNetCore.Builder; 
+﻿/*using Final_Project.Data;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting; 
+using Microsoft.Extensions.Hosting;
 namespace Final_Project
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;  
-        
+            Configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        { 
+        {
             services.AddControllers();
             services.AddSwaggerDocument();
             services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefualtConnection")));
@@ -26,14 +26,14 @@ namespace Final_Project
 
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDBContext context) 
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDBContext context)
         {
             if (env.IsDevelopment())
-            { 
+            {
                 app.UseDeveloperExceptionPage();
             }
             app.UseOpenApi();
-            app.UseSwaggerUI(); 
+            app.UseSwaggerUI();
             context.Database.Migrate();
 
             app.UseHttpsRedirection();
@@ -49,3 +49,4 @@ namespace Final_Project
         }
     }
 }
+*/

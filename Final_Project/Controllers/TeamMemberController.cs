@@ -10,8 +10,8 @@ namespace Final_Project.Controllers
     {
         
         private readonly ILogger<TeamMemberController> _logger;
-        private readonly TeamMemberContextDAO _context;
-        public TeamMemberController(ILogger<TeamMemberController> logger, TeamMemberContextDAO context)
+        private readonly ApplicationDBContext _context;
+        public TeamMemberController(ILogger<TeamMemberController> logger, ApplicationDBContext context)
         {
             _logger = logger;
             _context = context;
